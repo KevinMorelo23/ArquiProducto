@@ -60,6 +60,34 @@
                 <input type="hidden" name="total" id="total-input" value="0">
             </div>
         </div>
+        <div class="mb-4 card">
+            <div class="card-header ">
+                <h5 class="mb-0">Datos de envio</h5>
+            </div>
+
+            <div class="container mt-4">
+
+
+            <div class="mb-3">
+    <label for="shipping_name">Nombre del destinatario</label>
+    <input type="text" name="shipping_name" id="shipping_name" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="shipping_address">Dirección de envío</label>
+    <input type="text" name="shipping_address" id="shipping_address" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="shipping_city">Ciudad</label>
+    <input type="text" name="shipping_city" id="shipping_city" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="shipping_phone">Teléfono</label>
+    <input type="text" name="shipping_phone" id="shipping_phone" class="form-control">
+</div>
+
+            </div>
+        </div>
+
 
         <div class="mb-4 card">
             <div class="card-header">
@@ -137,7 +165,9 @@
             </div>
         </div>
     </div>
+
 </div>
+
 
 <script>
     document.getElementById('payment_method').addEventListener('change', function() {

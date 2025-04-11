@@ -41,16 +41,16 @@
                             <td>
                                 @switch($sale->payment_method)
                                 @case('cash')
-                                <span class="badge bg-success">Efectivo</span>
+                                <span class="badge rounded-pill text-bg-success">Efectivo</span>
                                 @break
                                 @case('transfer')
-                                <span class="badge bg-info">Transferencia</span>
+                                <span class="badge rounded-pill text-bg-primary">Transferencia</span>
                                 @break
                                 @case('credit_card')
-                                <span class="badge bg-primary">Tarjeta de Crédito</span>
+                                <span class="badge rounded-pill text-bg-secondary">Tarjeta de Crédito</span>
                                 @break
                                 @case('debit_card')
-                                <span class="badge bg-warning text-dark">Tarjeta de Débito</span>
+                                <span class="badge rounded-pill text-bg-dark">Tarjeta de Débito</span>
                                 @break
                                 @default
                                 <span class="badge bg-secondary">Otro</span>
@@ -62,7 +62,7 @@
                                 <span class="badge bg-warning text-dark">Pendiente</span>
                                 @break
                                 @case('completed')
-                                <span class="badge bg-success">Completada</span>
+                                <span class="btn btn-outline-success">Completada</span>
                                 @break
                                 @case('cancelled')
                                 <span class="badge bg-danger">Cancelada</span>
@@ -72,8 +72,8 @@
                                 @endswitch
                             </td>
                             <td>
-                                <a href="{{ route('sales.show', $sale) }}" class="btn btn-sm btn-info text-white">
-                                    <i class="fas fa-eye"></i> Detalles
+                                <a href="{{ route('sales.show', $sale) }}" class="btn btn-outline-secondary">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
                                 </a>
                             </td>
                         </tr>
@@ -87,5 +87,6 @@
             </div>
         </div>
     </div>
+    <a href="../products" class="btn btn-outline-secondary mt-4">Ver Productos</a>
 </div>
 @endsection

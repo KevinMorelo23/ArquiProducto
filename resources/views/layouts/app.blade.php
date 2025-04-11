@@ -12,6 +12,22 @@
 </head>
 
 <body>
+    <header>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="../categories/" class="nav-link " aria-current="page">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a href="../products/" class="nav-link">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a href="../sales/" class="nav-link">Ventas</a>
+            </li>
+            <li class="nav-item">
+                <a href="../providers/" class="nav-link">Proveedores</a>
+            </li>
+        </ul>
+    </header>
     <div class="container">
         @yield('content')
     </div>

@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
 
-    protected $fillable = ['name', 'description', 'price', 'stock', 'category_id', 'image'];
+    protected $fillable = ['name', 'description', 'price', 'stock', 'category_id', 'image', 'provider_id'];
 
     public function category()
     {
@@ -22,4 +22,8 @@ class Product extends Model
             ->withPivot('quantity', 'price')
             ->withTimestamps();
     }
+    public function provider()
+{
+    return $this->belongsTo(Provider::class);
+}
 }

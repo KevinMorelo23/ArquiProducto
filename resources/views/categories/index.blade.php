@@ -79,5 +79,6 @@
             </div>
         </div>
     </div>
+    <a href="../products/" class="btn btn-outline-secondary mt-4">Ver Productos</a>
 </div>
 @endsection

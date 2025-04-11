@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,8 +17,9 @@ class ProductController extends Controller
 
     public function create()
     {
+        $providers = Provider::all();
         $categories = Category::all();
-        return view('products.create', compact('categories'));
+        return view('products.create', compact('categories', 'providers'));
     }
 
     public function store(Request $request)
@@ -29,6 +31,8 @@ class ProductController extends Controller
             'stock' => 'required|integer|min:0',
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|max:2048',
+            'provider_id' => 'required|exists:providers,id',
+            
         ]);
 
         if ($request->hasFile('image')) {
@@ -44,8 +48,9 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $providers = Provider::all();
         $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+        return view('products.edit', compact('product', 'categories', 'providers'));
     }
 
     public function update(Request $request, Product $product)
@@ -57,6 +62,9 @@ class ProductController extends Controller
             'stock' => 'required|integer|min:0',
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|max:2048',
+            'provider_id' => 'required|exists:providers,id',
+            
+            
         ]);
 
         if ($request->hasFile('image')) {
@@ -76,5 +84,9 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')
             ->with('success', 'Producto eliminado exitosamente.');
+    }
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
     }
 }

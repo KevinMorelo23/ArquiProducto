@@ -29,9 +29,9 @@
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Categoría</label>
                             <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
-                                <option value="">Seleccionar categoría</option>
+                                <option value="">Seleccionar Categoría</option>
                                 @foreach($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                <option value="{{ $category->id }}" {{ old('category_id', $product->category_id ?? '') == $category->id ? 'selected' : '' }}>
                                     {{ $category->name }}
                                 </option>
                                 @endforeach
@@ -41,6 +41,7 @@
                             @enderror
                         </div>
                     </div>
+
                 </div>
 
                 <div class="row mb-3">
@@ -67,6 +68,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="provider_id" class="form-label">Proveedor</label>
+                        <select class="form-select @error('provider_id') is-invalid @enderror" id="provider_id" name="provider_id" required>
+                            <option value="">Seleccionar Proveedor</option>
+                            @foreach($providers as $provider)
+                            <option value="{{ $provider->id }}" {{ old('provider_id', $product->provider_id ?? '') == $provider->id ? 'selected' : '' }}>
+                                {{ $provider->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        @error('provider_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Descripción</label>

@@ -40,6 +40,10 @@ class SaleController extends Controller
                 'payment_method' => $request->payment_method,
                 'status' => 'pending',
                 'user_id' => auth()->id(),
+                'shipping_name' => $request->shipping_name,
+                'shipping_address' => $request->shipping_address,
+                'shipping_city' => $request->shipping_city,
+                'shipping_phone' => $request->shipping_phone,
             ]);
 
             $total = 0;
@@ -120,6 +124,10 @@ class SaleController extends Controller
             'card_expiry' => $request->card_expiry,
             'installments' => $request->installments,
             'account_number' => $request->account_number,
+            'shipping_name' => $request->shipping_name,
+            'shipping_address' => $request->shipping_address,
+            'shipping_city' => $request->shipping_city,
+            'shipping_phone' => $request->shipping_phone,
         ]);
 
         try {

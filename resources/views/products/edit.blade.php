@@ -76,6 +76,22 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="provider_id" class="form-label">Proveedor</label>
+                        <select class="form-select @error('provider_id') is-invalid @enderror" name="provider_id" id="provider_id" required>
+                            <option value="">Seleccionar proveedor</option>
+                            @foreach($providers as $provider)
+                            <option value="{{ $provider->id }}" {{ old('provider_id', $product->provider_id) == $provider->id ? 'selected' : '' }}>
+                                {{ $provider->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        @error('provider_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
 
 
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\SaleController;
 
 Route::get('/', function () {
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('sales', SaleController::class);
+    Route::resource('providers', ProviderController::class);
+
     Route::get('/sales/{id}/edit', [SaleController::class, 'edit'])->name('sales.edit');
     Route::put('/sales/{id}', [SaleController::class, 'update'])->name('sales.update');
 });

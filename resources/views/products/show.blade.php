@@ -17,16 +17,8 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4 text-center">
-                    @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid rounded mb-3" style="max-height: 300px;">
-                    @else
-                    <div class="bg-light d-flex align-items-center justify-content-center rounded" style="height: 200px;">
-                        <span class="text-muted">Sin imagen</span>
-                    </div>
-                    @endif
-                </div>
-                <div class="col-md-8">
+                
+                <div class="">
                     <h2>{{ $product->name }}</h2>
                     <p class="text-muted">Categoría: {{ $product->category->name }}</p>
 
@@ -35,7 +27,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Precio</h5>
-                                    <p class="card-text fs-4">${{ number_format($product->price, 2) }}</p>
+                                    <p class="card-text fs-4">${{ number_format($product->price, ) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +43,18 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Proveedor
+                        </div>
+                        <div class="card-body">
+                            @if($product->provider)
+                            {{ $product->provider->name }}
+                            @else
+                            <p class="text-muted">Sin Proveedor</p>
+                            @endif
                         </div>
                     </div>
 

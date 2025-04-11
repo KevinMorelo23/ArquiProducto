@@ -48,6 +48,12 @@
                             <td>{{ $product->category->name }}</td>
                             <td>
                                 <div class="btn-group " role="group">
+                                <a href="{{ route('products.show',$product->id) }}" class="border-0 bg-transparent text-success p-0 me-2  link-offset-2 link-underline link-underline-opacity-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye">
+                            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </a>
 
                                     <a href="{{ route('products.edit', $product) }}" class="text-primary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
@@ -84,5 +90,7 @@
             </div>
         </div>
     </div>
+    
+    <a href="../categories/" class="btn btn-outline-secondary mt-4">Ver Categorias</a>
 </div>
 @endsection

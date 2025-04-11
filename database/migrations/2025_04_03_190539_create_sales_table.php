@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('payment_method'); // 'cash', 'transfer', 'credit_card', 'debit_card'
             $table->json('payment_details')->nullable();
             $table->string('status')->default('pending'); // 'pending', 'completed', 'cancelled'
+            $table->string('shipping_name')->nullable();
+            $table->string('shipping_address')->nullable();
+            $table->string('shipping_city')->nullable();
+            $table->string('shipping_phone')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

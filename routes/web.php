@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProviderController;
@@ -19,11 +21,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    /* Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
@@ -34,9 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('providers', ProviderController::class);
 
     Route::get('/sales/{id}/edit', [SaleController::class, 'edit'])->name('sales.edit');
-    Route::put('/sales/{id}', [SaleController::class, 'update'])->name('sales.update');
+    Route::put('/sales/{id}', [SaleController::class, 'update'])->name('sales.update'); */
 });
 
 
 
 require __DIR__ . '/auth.php';
+require_once base_path('bootstrap/custom_routes.php');

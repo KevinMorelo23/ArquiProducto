@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,7 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Vite::prefetch(concurrency: 3);
-        Schema::defaultStringLength(191);
+        // Registrar directorios de vistas para cada dominio
+        $domains = ['Category', 'Payment', 'Product', 'Promociones', 'Provider', 'Report', 'Sale'];
+        
+        foreach ($domains as $domain) {
+            $viewPath = base_path("{$domain}/Views");
+            if (is_dir($viewPath)) {
+                $this->loadViewsFrom($viewPath, $domain);
+            }
+        }
     }
 }
